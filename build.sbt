@@ -1,7 +1,4 @@
-name := """SilhouetteSample"""
-organization := "com.example"
-
-version := "1.0-SNAPSHOT"
+resolvers += Resolver.jcenterRepo
 
 lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
@@ -16,6 +13,16 @@ lazy val root = (project in file("."))
     ),
     libraryDependencies ++= Seq(
       guice,
-      "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
+      "net.codingwell"         %% "scala-guice"                     % "4.2.11",
+      "org.scalatestplus.play" %% "scalatestplus-play"              % "5.0.0"   % Test,
+      "com.h2database"          % "h2"                              % "1.4.200" % Test,
+      "org.mariadb.jdbc"        % "mariadb-java-client"             % "2.7.1",
+      "com.typesafe.play"      %% "play-slick"                      % "5.0.0",
+      "com.typesafe.play"      %% "play-slick-evolutions"           % "5.0.0",
+      "com.mohiva"             %% "play-silhouette"                 % "7.0.0",
+      "com.mohiva"             %% "play-silhouette-persistence"     % "7.0.0",
+      "com.mohiva"             %% "play-silhouette-crypto-jca"      % "7.0.0",
+      "com.mohiva"             %% "play-silhouette-password-bcrypt" % "7.0.0",
+      "com.mohiva"             %% "play-silhouette-testkit"         % "7.0.0"   % Test
     )
   )
