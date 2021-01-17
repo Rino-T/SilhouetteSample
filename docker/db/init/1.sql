@@ -54,12 +54,10 @@ create table password_info
 
 create table token
 (
-    id      varchar(255)                          not null comment '認証トークンID'
+    id      varchar(255)                         not null comment '認証トークンID'
         primary key,
-    user_id varchar(255)                          not null comment 'ユーザーID',
-    expiry  timestamp default current_timestamp() not null on update current_timestamp () comment '有効期限',
+    user_id varchar(255)                         not null comment 'ユーザーID',
+    expiry  datetime default current_timestamp() not null on update current_timestamp () comment '有効期限',
     constraint token_user_id_fk
         foreign key (user_id) references user (id)
 ) comment '認証トークン';
-
-

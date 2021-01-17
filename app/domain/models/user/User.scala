@@ -8,7 +8,8 @@ case class User(
     id: UserId,
     loginInfo: LoginInfo,
     name: Option[UserName],
-    email: Option[Email]
+    email: Option[Email],
+    role: Role
 ) extends Identity
 
 case class UserId(value: UUID)

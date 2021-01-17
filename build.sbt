@@ -17,6 +17,7 @@ lazy val root = (project in file("."))
       "org.scalatestplus.play" %% "scalatestplus-play"              % "5.0.0"   % Test,
       "com.h2database"          % "h2"                              % "1.4.200" % Test,
       "org.mariadb.jdbc"        % "mariadb-java-client"             % "2.7.1",
+      "com.iheart"             %% "ficus"                           % "1.5.0",
       "com.typesafe.play"      %% "play-slick"                      % "5.0.0",
       "com.typesafe.play"      %% "play-slick-evolutions"           % "5.0.0",
       "com.mohiva"             %% "play-silhouette"                 % "7.0.0",
