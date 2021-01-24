@@ -1,6 +1,7 @@
 package controllers.viewmodels.request.auth.signUp
 
 import controllers.viewmodels.request.validator.JsonValidator
+import domain.models.auth.CredentialsSignUpData
 import play.api.libs.json.{Json, OFormat}
 import play.api.mvc.{BodyParser, PlayBodyParsers}
 import play.api.mvc.Results.BadRequest
@@ -16,6 +17,8 @@ case class SignUpRequest(
   require(name.nonEmpty, "名前は必須")
   require(email.nonEmpty, "Emailは必須")
   require(password.length >= 8, "パスワードは8文字以上")
+
+  def toCredentialsSignUpData: CredentialsSignUpData = CredentialsSignUpData(name, email, password)
 }
 
 object SignUpRequest {

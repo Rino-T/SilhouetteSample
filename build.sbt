@@ -18,6 +18,7 @@ lazy val root = (project in file("."))
       "com.h2database"          % "h2"                              % "1.4.200" % Test,
       "org.mariadb.jdbc"        % "mariadb-java-client"             % "2.7.1",
       "com.iheart"             %% "ficus"                           % "1.5.0",
+      "org.typelevel"          %% "cats-core"                       % "2.1.1",
       "com.typesafe.play"      %% "play-slick"                      % "5.0.0",
       "com.typesafe.play"      %% "play-slick-evolutions"           % "5.0.0",
       "com.mohiva"             %% "play-silhouette"                 % "7.0.0",

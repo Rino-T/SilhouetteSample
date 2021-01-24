@@ -1,18 +1,24 @@
-package gateways.rdb.entities
+package gateways.rdb.entities.user
 
+import domain.models.user._
 import slick.jdbc.JdbcProfile
 
 import java.util.UUID
 
-case class UserEntity(
+private[gateways] case class UserEntity(
     id: UUID,
     name: Option[String],
     email: Option[String],
     roleId: Int,
     activated: Boolean
-)
+) {
+  def toUser(role: Role): User = {
+    require(role.id.value == roleId)
+    User(UserId(id), name.map(UserName.apply), email.map(Email.apply), role)
+  }
+}
 
-trait UserTableDefinition {
+private[gateways] trait UserTableDefinition {
   protected val profile: JdbcProfile
 
   import profile.api._

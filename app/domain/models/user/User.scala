@@ -6,7 +6,6 @@ import java.util.UUID
 
 case class User(
     id: UserId,
-    loginInfo: LoginInfo,
     name: Option[UserName],
     email: Option[Email],
     role: Role

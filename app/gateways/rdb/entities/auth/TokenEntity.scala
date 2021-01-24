@@ -1,22 +1,23 @@
-package gateways.rdb.entities
+package gateways.rdb.entities.auth
 
 import domain.models.auth.AuthToken
+import domain.models.user.UserId
 import slick.jdbc.JdbcProfile
 
 import java.time.{Instant, ZoneId}
 import java.util.UUID
 
-case class TokenEntity(
+private[gateways] case class TokenEntity(
     id: UUID,
     userId: UUID,
     private val expiryTimestamp: java.sql.Timestamp
 ) {
   val expiry: Instant = expiryTimestamp.toInstant
 
-  def toAuthToken: AuthToken = AuthToken(id, userId, expiry.atZone(ZoneId.systemDefault()))
+  def toAuthToken: AuthToken = AuthToken(id, UserId(userId), expiry.atZone(ZoneId.systemDefault()))
 }
 
-trait TokenTableDefinition {
+private[gateways] trait TokenTableDefinition {
   protected val profile: JdbcProfile
 
   import profile.api._

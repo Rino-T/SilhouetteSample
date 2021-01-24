@@ -1,16 +1,19 @@
 package modules
 
 import com.google.inject.AbstractModule
-import domain.application.auth.validate.ValidateAuthTokenInteractor
+import domain.application.auth.activate.ActivateAccountInteractor
 import domain.models.auth.AuthTokenRepository
-import domain.usecases.auth.validate.ValidateAuthTokenUseCase
+import domain.models.user.UserRepository
+import domain.usecases.auth.activate.ActivateAccountUseCase
 import gateways.repositoryImpl.auth.AuthTokenRepositoryImpl
+import gateways.repositoryImpl.user.UserRepositoryImpl
 import net.codingwell.scalaguice.ScalaModule
 
 class BaseModule extends AbstractModule with ScalaModule {
   override def configure(): Unit = {
-    bind[ValidateAuthTokenUseCase].to[ValidateAuthTokenInteractor]
+    bind[ActivateAccountUseCase].to[ActivateAccountInteractor]
 
+    bind[UserRepository].to[UserRepositoryImpl]
     bind[AuthTokenRepository].to[AuthTokenRepositoryImpl]
   }
 }
