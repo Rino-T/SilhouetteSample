@@ -5,6 +5,7 @@ import com.mohiva.play.silhouette.api.{AuthInfo, LoginInfo}
 import domain.models.user.UserId
 
 import java.util.UUID
+import scala.language.postfixOps
 import scala.concurrent.Future
 import scala.concurrent.duration.{DurationInt, FiniteDuration}
 
