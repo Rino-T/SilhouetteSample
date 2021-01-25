@@ -5,7 +5,7 @@ import com.mohiva.play.silhouette.api.LoginInfo
 import com.mohiva.play.silhouette.api.util.PasswordHasherRegistry
 import com.mohiva.play.silhouette.impl.providers.CredentialsProvider
 import domain.application.mail.MailService
-import domain.application.{ApplicationError, ConflictedError, InfraErrorOps, OptionTOps, SystemError}
+import domain.application.{ConflictedError, InfraErrorOps, OptionTOps, SystemError}
 import domain.models.auth.AuthTokenRepository
 import domain.models.user.{Email, UserName, UserRepository}
 import domain.usecases.auth.signUp.SignUpOutput.{UserAlreadyExists, UserCreated}

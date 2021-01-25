@@ -30,4 +30,10 @@ private[gateways] trait LoginInfoTableDefinition {
   }
 
   val loginInfoTable = TableQuery[LoginInfoTable]
+
+  def loginInfoQuery(loginInfo: LoginInfo): Query[LoginInfoTable, LoginInfoEntity, Seq] = {
+    loginInfoTable
+      .filter(_.providerId === loginInfo.providerID)
+      .filter(_.providerKey === loginInfo.providerKey)
+  }
 }

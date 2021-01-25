@@ -6,13 +6,14 @@ import com.amazonaws.services.simpleemail.model._
 import domain.application.mail.MailService
 import play.api.Logging
 
+import javax.inject.Inject
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Failure
 
 /** AWS SESを利用
   * @see https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/examples-send-using-sdk.html
   */
-class AmazonSESMailServiceImpl(implicit ec: ExecutionContext) extends MailService with Logging {
+class AmazonSESMailServiceImpl @Inject() (implicit ec: ExecutionContext) extends MailService with Logging {
   def sendHtmlEmail(
       from: String,
       to: String,

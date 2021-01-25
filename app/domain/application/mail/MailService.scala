@@ -13,5 +13,5 @@ trait MailService {
     )
   }
 
-  def sendHtmlEmail(from: String, to: String, subject: String, htmlConten: String, loggerNote: String): Unit
+  def sendHtmlEmail(from: String, to: String, subject: String, htmlContent: String, loggerNote: String): Unit
 }

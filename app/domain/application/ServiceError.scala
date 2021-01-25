@@ -20,7 +20,7 @@ abstract class ApplicationError(errorCode: ErrorCode, args: Any*) extends Servic
 case class NotFoundError(entityType: String, id: Any)
     extends ApplicationError(ServiceErrorCodes.NotFound, entityType, id)
 
-case class ConflictedError(id: Any) extends ApplicationError(ServiceErrorCodes.Conflicted, id)
+case class ConflictedError(value: Any) extends ApplicationError(ServiceErrorCodes.Conflicted, value)
 
 object ServiceErrorCodes {
   val SystemError = "error.system"
